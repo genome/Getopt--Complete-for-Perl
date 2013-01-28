@@ -27,7 +27,8 @@ for my $subname (qw/
         my ($command,$value,$key,$args) = @_;
         $value ||= '';
         $value =~ s/\\/\\\\/;
-        $value =~ s/\'/\\'/;
+        $value =~ s/\'/\\"/g; # Cannot have single quotes within single quotes!
+        $value =~ s/\"/\\"/g; # Need to escape double quotes for `bash -c "..."`.
         my @f =  grep { $_ !~/^\s+$/ } `bash -c "compgen -$option -- '$value'"`; 
         chomp @f;
         if ($option eq 'f' or $option eq 'd') {
