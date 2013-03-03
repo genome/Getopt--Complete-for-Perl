@@ -406,7 +406,7 @@ completions are considered valid.  If an undefined value is returned, no complet
 specified, but ANY arbitrary value entered is considered valid as far as error checking is
 concerned.
 
-The callback registerd in the completion specification will receive the following parameters:
+The callback registered in the completion specification will receive the following parameters:
 
 =over 4
 
@@ -512,7 +512,7 @@ after Getopt::Complete:: as the completion callback.  For example:
 
 The full name is alissed as the single-character compgen parameter name for convenience.
 Further, because Getopt::Complete is the default namespace during processing, it can
-be ommitted from callback function names.
+be omitted from callback function names.
 
 The following are all equivalent.  They effectively produce the same list as 'compgen -f':
 
