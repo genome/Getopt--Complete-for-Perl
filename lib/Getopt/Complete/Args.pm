@@ -211,14 +211,15 @@ sub _validate_values {
                     next;
                 }
             }
-            my @valid_values = @$completions;
+            my @valid_values = grep {defined($_)} @$completions;
             @valid_values_shown_in_message = @valid_values;
             
             if (ref($valid_values[-1]) eq 'ARRAY') {
                 push @valid_values, @{ pop(@valid_values) };
                 pop @valid_values_shown_in_message;
             }
-            unless (grep { $_ eq $value } map { /(.*)\t$/ ? $1 : $_ } @valid_values) {
+            my @filtered_valid_values = map { /(.*)\t$/ ? $1 : $_ } @valid_values;
+            unless (grep { $_ eq $value } @filtered_valid_values) {
                 my $msg = ($key eq '<>' ? "invalid argument $value." : "$key has invalid value $value."); 
                 if (@valid_values_shown_in_message) {
                     $msg .= "  Select from: " . join(", ", map { /^(.+)\t$/ ? $1 : $_ } @valid_values_shown_in_message);
@@ -354,9 +355,11 @@ sub reduce_possibilities_for_current_word {
     my @nospace;
     my @abbreviated_matches;
     for my $p (@possibilities) {
-        my $i =index($p,$current);
-        if ($i == 0) {
-            push @matches, $p;
+        if (defined $p) {
+            my $i =index($p,$current);
+            if ($i == 0) {
+                push @matches, $p;
+            }
         }
     }
     return @matches;
