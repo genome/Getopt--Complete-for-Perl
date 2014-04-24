@@ -66,7 +66,7 @@ DESCRIPTION
 OPTIONS PROCESSING
     Getopt::Complete processes the command-line options at compile time.
 
-    The results are avaialble in the %ARGS hash, which is intended as a
+    The results are available in the %ARGS hash, which is intended as a
     companion to the @ARGV array generated natively by Perl.
 
       use Getopt::Complete (
@@ -119,7 +119,7 @@ PROGRAMMABLE COMPLETION BACKGROUND
 
     Bash can be configured to run a specific program to handle the
     completion task, allowing custom completions to be done for different
-    appliations. The "complete" built-in bash command instructs the shell
+    applications. The "complete" built-in bash command instructs the shell
     as-to how to handle tab-completion for a given command.
 
     This module allows a program to be its own word-completer. It detects
@@ -293,7 +293,7 @@ WRITING SUBROUTINE CALLBACKS
     is returned, no completions are specified, but ANY arbitrary value
     entered is considered valid as far as error checking is concerned.
 
-    The callback registerd in the completion specification will receive the
+    The callback registered in the completion specification will receive the
     following parameters:
 
     command name
@@ -441,11 +441,11 @@ PARTIAL COMPLETIONS
         is no ambiguity in the rest of the returned list.
 
         Partial completions are only usable from callbacks. From a
-        hard-coded array of values, it would be impossible to ever fuly
+        hard-coded array of values, it would be impossible to ever fully
         complete the partial completion.
 
   BACKGROUND
-        Sometimes, the entire list of completions is too big to reasonable
+        Sometimes, the entire list of completions is too big to reasonably
         resolve and return. The most obvious example is filename completion
         at the root of a large filesystem. In these cases, the completion of
         is handled in pieces, allowing the user to gradually "drill down" to
