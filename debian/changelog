@@ -1,0 +1,5 @@
+libgetopt-complete-perl (0.27-1) lucid-genome-development; urgency=low
+
+  * Initial Release.
+
+ -- Anthony Brummett <abrummet@genome.wustl.edu>  Thu, 26 Jun 2014 16:39:06 -0500

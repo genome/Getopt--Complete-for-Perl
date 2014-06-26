@@ -1,0 +1,27 @@
+Source: libgetopt-complete-perl
+Section: perl
+Priority: optional
+Build-Depends: debhelper (>= 7), perl (>= 5.10) | libmodule-build-perl
+Build-Depends-Indep: perl (>= 5.8.700)
+Maintainer: Anthony Brummett <abrummet@genome.wustl.edu>
+Standards-Version: 3.8.3
+Homepage: http://search.cpan.org/dist/Getopt-Complete/
+
+Package: libgetopt-complete-perl
+Architecture: all
+Depends: ${perl:Depends}, ${misc:Depends}, perl (>= 5.8.700)
+Description: programmable shell completion for Perl apps
+ Getopt::Complete makes it easy to add custom command-line completion to Perl
+ applications. It also does additional validation of arguments, when the
+ program is actually executed, based on completion lists.
+ .
+ Support is also present for apps which are an entry point for a hierarchy of
+ sub-commands (in the style of cvs and git).
+ .
+ Getopt::Complete also wraps the standard options processing and exports it as
+ a %ARGS hash at compile time, making using the arguments hassle-free.
+ .
+ The completion features currently work with the bash shell, which is the
+ default on most Linux and Mac systems. Patches for other shells are welcome.
+ .
+ This description was automagically extracted from the module by dh-make-perl.
